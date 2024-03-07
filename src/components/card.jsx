@@ -1,6 +1,6 @@
 function Card(data) {
   return (
-    <div className="w-72 h-24 px-5 bg-slate-100 rounded-md hover:shadow-xl hover:mt-2 shadow-md flex justify-evenly items-center flex-col ">
+    <div className="w-72 h-24 px-5 bg-slate-100 rounded-md hover:shadow-2xl shadow-md flex justify-evenly items-center flex-col ">
       <div className="flex justify-between w-full">
         <span>{data.number}</span>
         <span>{data.englishName}</span>

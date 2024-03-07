@@ -41,10 +41,10 @@ function SingleCard() {
           </div>
         </>
       ) : (
-        <div className="px-20 py-10">
+        <div className="px-20 py-10 bg-slate-600">
           {ayahs.map((ayah) => (
-            <div className="">
-              <p className="border-b font-medium text-lg p-5 text-end">
+            <div className="bg-gray-50">
+              <p className="border-b-2 border-slate-600 font-medium text-lg p-5 text-end">
                 {ayah.text}
                 <span className="text-green-700 font-bold">
                   ({ayah.numberInSurah})
