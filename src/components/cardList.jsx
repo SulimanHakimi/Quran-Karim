@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 function CardList() {
   const [surah, setSurah] = useState([]);
+
   useEffect(() => {
     axios
       .get("https://api.alquran.cloud/v1/surah")
