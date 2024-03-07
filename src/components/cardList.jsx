@@ -15,7 +15,7 @@ function CardList() {
   }, []);
   return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="grid grid-cols-3 my-20 gap-5">
+      <div className="grid lg:grid-cols-3 sm:grid-cols-2 my-20 gap-5">
         {surah.map((element) => (
           <Link to={`/surah/${element.number}`}>
             <Card
