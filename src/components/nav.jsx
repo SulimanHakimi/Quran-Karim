@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Nav() {
   return (
-    <div className="flex justify-between shadow px-20 py-3 w-full fixed top-0 bg-slate-700">
+    <div className="flex justify-between z-30 shadow px-20 py-3 w-full fixed top-0 bg-slate-700">
       <div className="flex items-center gap-5">
         <img
           className="w-12 h-12 rounded-full"
@@ -13,10 +13,18 @@ function Nav() {
         <span className="font-semibold text-xl text-white">Learn Quran</span>
       </div>
       <ul className="flex items-center text-lg gap-8 text-white">
-        <li className="cursor-pointer"><Link to={"/"}>Home</Link></li>
-        <li className="cursor-pointer"><Link to={"/juz"}>Juz</Link></li>
-        <li className="cursor-pointer"><Link to={"/surah"}>Surah</Link></li>
-        <li className="cursor-pointer"><Link to={"/ayahs"}>Ayahs</Link></li>
+        <li className="cursor-pointer">
+          <Link to={"/"}>Home</Link>
+        </li>
+        <li className="cursor-pointer">
+          <Link to={"/juz"}>Juz</Link>
+        </li>
+        <li className="cursor-pointer">
+          <Link to={"/surah"}>Surah</Link>
+        </li>
+        <li className="cursor-pointer">
+          <Link to={"/ayahs"}>Ayahs</Link>
+        </li>
       </ul>
     </div>
   );

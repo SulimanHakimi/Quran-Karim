@@ -1,11 +1,11 @@
 import React from "react";
 
-function JuzCard() {
+function JuzCard(juz) {
   return (
-    <div>
-      <div className="w-60 m-40 h-20 px-5 bg-slate-100 rounded-md hover:shadow-2xl shadow-md flex justify-between items-center ">
-        <span className="font-semibold text-blue-700">Para 1</span>
-        <span className="font-bold">سیقول</span>
+    <div className="">
+      <div className="w-80 h-24 px-5 bg-slate-100 rounded-md hover:shadow-2xl shadow-md flex justify-evenly items-center">
+        <span className="font-semibold text-blue-700">Para {juz.number}</span>
+        <span className="font-bold">{juz.name}</span>
       </div>
     </div>
   );

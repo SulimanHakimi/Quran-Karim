@@ -1,23 +1,22 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import React from "react";
 import axios from "axios";
+import JuzCard from "./juzCard";
+import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
-function SingleCard() {
-  const [ayahs, setAyahs] = useState([]);
-  const params = useParams();
+function JuzCardList() {
+  const [juz, setJuz] = useState([]);
   const [loding, setLoding] = useState(true);
 
   useEffect(() => {
     axios
-      .get(`https://api.quran.gading.dev/surah/${params.id}`)
+      .get("https://sulimanhakimi.github.io/quran-karim-juzs-api/juz.json")
       .then((res) => {
-        setAyahs(res.data.data);
+        setJuz(res.data.juzs);
         setLoding(false);
       })
       .catch((err) => console.log(err));
   }, []);
-
-
   return (
     <>
       {loding ? (
@@ -42,38 +41,18 @@ function SingleCard() {
           </div>
         </>
       ) : (
-        <div className="px-[5vw] py-[5vh] bg-slate-600">
-          <div className="border-b-2 border-slate-600 bg-gray-50 flex justify-evenly font-medium text-2xl p-8">
-            {}
-            <span className=" text-red-600">{ayahs?.revelation?.arab}</span>
-            <span className="text-slate-600">
-              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
-            </span>
-            <audio autoPlay>
-              <source
-                src="https://cdn.alquran.cloud/media/audio/ayah/ar.alafasy/1"
-                type="audio/mpeg"
-              />
-            </audio>
-            <span className=" text-green-600">{ayahs?.name?.long}</span>
+        <div className="flex flex-col justify-center items-center min-h-screen">
+          <div className="grid lg:grid-cols-3 mt-32 sm:grid-cols-2 my-20 gap-5">
+            {juz.map((element) => (
+              <Link to={`/juz/${element.id}`}>
+                <JuzCard number={element.juz_number} name={element.name} />
+              </Link>
+            ))}
           </div>
-          {ayahs.verses.map((ayah) => (
-            <div className="bg-gray-50">
-              <p className="border-b-2 border-slate-600 flex items-start text-end justify-end font-medium text-lg p-5">
-                {ayah.text.arab}&nbsp;&nbsp;
-                <span className="text-green-700 flex items-start font-bold">
-                  ({ayah.number.inSurah})
-                  <audio controls className="w-40 h-10">
-                    <source src={ayah.audio.primary} type="audio/mpeg" />
-                  </audio>
-                </span>
-              </p>
-            </div>
-          ))}
         </div>
       )}
     </>
   );
 }
 
-export default SingleCard;
+export default JuzCardList;

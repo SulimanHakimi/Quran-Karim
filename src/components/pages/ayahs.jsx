@@ -5,6 +5,7 @@ function Ayahs() {
   return (
     <div>
       <Nav />
+      <div className="h-screen flex justify-center items-center text-2xl">empty for now</div>
       <Footer />
     </div>
   );
