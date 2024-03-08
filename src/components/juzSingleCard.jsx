@@ -50,6 +50,12 @@ function JuzSingleCard() {
             <span className="text-slate-600">
               بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
             </span>
+            <audio autoPlay>
+              <source
+                src="https://cdn.alquran.cloud/media/audio/ayah/ar.alafasy/1"
+                type="audio/mpeg"
+              />
+            </audio>
             <span className=" text-green-600">{juz?.juzEndInfo}</span>
           </div>
           {juz.verses.map((ayah) => (
