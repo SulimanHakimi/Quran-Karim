@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function Nav() {
   return (
@@ -12,10 +13,10 @@ function Nav() {
         <span className="font-semibold text-xl text-white">Learn Quran</span>
       </div>
       <ul className="flex items-center text-lg gap-8 text-white">
-        <li className="cursor-pointer">Home</li>
-        <li className="cursor-pointer">Juz</li>
-        <li className="cursor-pointer">Surah</li>
-        <li className="cursor-pointer">Ayahs</li>
+        <li className="cursor-pointer"><Link to={"/"}>Home</Link></li>
+        <li className="cursor-pointer"><Link to={"/juz"}>Juz</Link></li>
+        <li className="cursor-pointer"><Link to={"/surah"}>Surah</Link></li>
+        <li className="cursor-pointer"><Link to={"/ayahs"}>Ayahs</Link></li>
       </ul>
     </div>
   );

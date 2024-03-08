@@ -9,13 +9,17 @@ function SingleCard() {
 
   useEffect(() => {
     axios
-      .get(`https://api.alquran.cloud/v1/surah/${params.id}`)
+      .get(`https://api.quran.gading.dev/surah/${params.id}`)
       .then((res) => {
-        setAyahs(res.data.data.ayahs);
+        setAyahs(res.data.data);
         setLoding(false);
       })
       .catch((err) => console.log(err));
   }, []);
+  const audiofunction = (idx) => {
+    document.getElementById("myAudio").play();
+    console.log(idx);
+  };
 
   return (
     <>
@@ -42,12 +46,30 @@ function SingleCard() {
         </>
       ) : (
         <div className="px-20 py-10 bg-slate-600">
-          {ayahs.map((ayah) => (
+          <div className="border-b-2 border-slate-600 bg-gray-50 flex justify-evenly font-medium text-2xl p-8">
+            {}
+            <span className=" text-red-600">{ayahs?.revelation?.arab}</span>
+            <span className="text-slate-600">
+              بِسْمِ اللَّهِ الرَّحْمَٰنِ الرَّحِيمِ
+            </span>
+            <audio>
+              <source
+                src="https://cdn.alquran.cloud/media/audio/ayah/ar.alafasy/1"
+                type="audio/mpeg"
+              />
+            </audio>
+            <span className=" text-green-600">{ayahs?.name?.long}</span>
+          </div>
+          {ayahs.verses.map((ayah, idx) => (
             <div className="bg-gray-50">
-              <p className="border-b-2 border-slate-600 font-medium text-lg p-5 text-end">
-                {ayah.text}
+              <p className="border-b-2 border-slate-600 flex items-center text-end justify-end font-medium text-lg p-5">
+                {ayah.text.arab}&nbsp;&nbsp;
+                <audio id="myAudio" controls>
+                  <source src={ayah.audio.primary} type="audio/mpeg" />
+                </audio>
+                <button onClick={audiofunction}>play</button>
                 <span className="text-green-700 font-bold">
-                  ({ayah.numberInSurah})
+                  ({ayah.number.inSurah})
                 </span>
               </p>
             </div>
