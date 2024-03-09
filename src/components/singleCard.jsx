@@ -17,7 +17,6 @@ function SingleCard() {
       .catch((err) => console.log(err));
   }, []);
 
-
   return (
     <>
       {loding ? (
@@ -42,8 +41,8 @@ function SingleCard() {
           </div>
         </>
       ) : (
-        <div className="px-[5vw] py-[5vh] bg-slate-600">
-          <div className="border-b-2 border-slate-600 bg-gray-50 flex justify-evenly font-medium text-2xl p-8">
+        <div className="md:px-[5vw] px-0 py-0 md:py-[10vh] bg-slate-600">
+          <div className="border-b-2 border-slate-600 bg-gray-50 flex justify-evenly font-medium md:text-2xl text-base py-6 md:p-8">
             {}
             <span className=" text-red-600">{ayahs?.revelation?.arab}</span>
             <span className="text-slate-600">
@@ -59,11 +58,11 @@ function SingleCard() {
           </div>
           {ayahs.verses.map((ayah) => (
             <div className="bg-gray-50">
-              <p className="border-b-2 border-slate-600 flex items-start text-end justify-end font-medium text-lg p-5">
+              <p className="border-b-2 border-slate-600 flex items-start text-end justify-end md:font-medium font-normal md:text-lg text-sm p-2 md:p-5">
                 {ayah.text.arab}&nbsp;&nbsp;
-                <span className="text-green-700 flex items-start font-bold">
+                <span className="text-green-700 flex items-start font-medium md:font-bold">
                   ({ayah.number.inSurah})
-                  <audio controls className="w-40 h-10">
+                  <audio controls className="md:w-40 w-24 h-8 z-10 md:h-10">
                     <source src={ayah.audio.primary} type="audio/mpeg" />
                   </audio>
                 </span>

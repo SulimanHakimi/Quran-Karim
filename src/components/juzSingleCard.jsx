@@ -24,7 +24,7 @@ function JuzSingleCard() {
           <div class="h-screen flex justify-center items-center">
             <svg
               aria-hidden="true"
-              class="w-14 h-14 text-gray-200 animate-spin fill-blue-600"
+              class="md:w-14 md:h-14 h-10 w-10 text-gray-200 animate-spin fill-blue-600"
               viewBox="0 0 100 101"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
@@ -41,8 +41,8 @@ function JuzSingleCard() {
           </div>
         </>
       ) : (
-        <div className="px-[5vw] py-[10vh] bg-slate-600">
-          <div className="border-b-2 border-slate-600 bg-gray-50 flex justify-evenly font-medium text-2xl p-8">
+        <div className="md:px-[5vw] px-0 py-0 md:py-[10vh] bg-slate-600">
+          <div className="border-b-2 border-slate-600 bg-gray-50 flex justify-evenly font-medium md:text-2xl text-base py-6 md:p-8">
             {}
             <span className=" text-slate-600">
               Juz <span className="text-green-500">({juz?.juz})</span>
@@ -60,11 +60,11 @@ function JuzSingleCard() {
           </div>
           {juz.verses.map((ayah) => (
             <div className="bg-gray-50">
-              <p className="border-b-2 border-slate-600 flex items-start text-end justify-end font-medium text-lg p-5">
+              <p className="border-b-2 border-slate-600 flex items-start text-end justify-end md:font-medium font-normal md:text-lg text-sm p-2 md:p-5">
                 {ayah.text.arab}&nbsp;&nbsp;
-                <span className="text-green-700 flex items-start font-bold">
+                <span className="text-green-700 flex items-start font-medium md:font-bold">
                   ({ayah.number.inSurah})
-                  <audio controls className="w-40 z-10 h-10">
+                  <audio controls className="md:w-40 h-8 w-24 z-10 md:h-10">
                     <source src={ayah.audio.primary} type="audio/mpeg" />
                   </audio>
                 </span>

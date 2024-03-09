@@ -42,7 +42,7 @@ function JuzCardList() {
         </>
       ) : (
         <div className="flex flex-col justify-center items-center min-h-screen">
-          <div className="grid lg:grid-cols-3 mt-32 sm:grid-cols-2 my-20 gap-5">
+          <div className="grid lg:grid-cols-3 sm:grid-cols-1 mt-32 md:grid-cols-2 my-20 gap-5">
             {juz.map((element) => (
               <Link to={`/juz/${element.id}`}>
                 <JuzCard number={element.juz_number} name={element.name} />
