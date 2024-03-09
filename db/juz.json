@@ -3,7 +3,7 @@
     {
       "id": 1,
       "juz_number": 1,
-      "name": "Alif Lam Meem",
+      "name": "آلم",
       "first_verse_id": 1,
       "last_verse_id": 148,
       "verses_count": 148
@@ -11,7 +11,7 @@
     {
       "id": 2,
       "juz_number": 2,
-      "name": "Sayaqool",
+      "name": "سَيَقُولُ",
       "first_verse_id": 149,
       "last_verse_id": 259,
       "verses_count": 111
@@ -19,8 +19,7 @@
     {
       "id": 3,
       "juz_number": 3,
-      "name": "Tilkal Rusul",
-
+      "name": "تِلْكَ الرُّسُل",
       "first_verse_id": 260,
       "last_verse_id": 385,
       "verses_count": 126
@@ -28,7 +27,7 @@
     {
       "id": 4,
       "juz_number": 4,
-      "name": "Lan Tana Loo",
+      "name": "لَنْ تَنَالُوا",
 
       "first_verse_id": 386,
       "last_verse_id": 516,
@@ -37,7 +36,7 @@
     {
       "id": 5,
       "juz_number": 5,
-      "name": "Wal Mohsanat",
+      "name": "وَالْمُحْصَنَاتُ",
 
       "first_verse_id": 517,
       "last_verse_id": 640,
@@ -46,7 +45,7 @@
     {
       "id": 6,
       "juz_number": 6,
-      "name": "La Yuhibbullah",
+      "name": "لَا يُحِبُّ اللَّهُ ",
 
       "first_verse_id": 641,
       "last_verse_id": 750,
@@ -55,7 +54,7 @@
     {
       "id": 7,
       "juz_number": 7,
-      "name": "Wa Iza Samiu",
+      "name": "وَإِذَا سَمِعُوا",
 
       "first_verse_id": 751,
       "last_verse_id": 899,
@@ -64,7 +63,7 @@
     {
       "id": 8,
       "juz_number": 8,
-      "name": "Wa Lau Annana",
+      "name": "وَلَوْ أَنَّنَا",
 
       "first_verse_id": 900,
       "last_verse_id": 1041,
@@ -73,7 +72,7 @@
     {
       "id": 9,
       "juz_number": 9,
-      "name": "Qalal Malao",
+      "name": "قَالَ الْمَلَأُ",
 
       "first_verse_id": 1042,
       "last_verse_id": 1200,
@@ -82,7 +81,7 @@
     {
       "id": 10,
       "juz_number": 10,
-      "name": "Wa A'lamu",
+      "name": "وَاعْلَمُوا",
 
       "first_verse_id": 1201,
       "last_verse_id": 1327,
@@ -91,7 +90,7 @@
     {
       "id": 11,
       "juz_number": 11,
-      "name": "Yatazeroon",
+      "name": "يَعْتَذِرُونَ",
 
       "first_verse_id": 1328,
       "last_verse_id": 1478,
@@ -100,7 +99,7 @@
     {
       "id": 12,
       "juz_number": 12,
-      "name": "Wa Mamin Da'abat",
+      "name": "وَمَا مِنْ دَابَّةٍ",
 
       "first_verse_id": 1479,
       "last_verse_id": 1648,
@@ -109,7 +108,7 @@
     {
       "id": 13,
       "juz_number": 13,
-      "name": "Wa Ma Ubrioo",
+      "name": "بَرِّئُوَمَا",
 
       "first_verse_id": 1649,
       "last_verse_id": 1802,
@@ -118,7 +117,7 @@
     {
       "id": 14,
       "juz_number": 14,
-      "name": "Rubama",
+      "name": "رُبَمَا",
 
       "first_verse_id": 1803,
       "last_verse_id": 2029,
@@ -127,7 +126,7 @@
     {
       "id": 15,
       "juz_number": 15,
-      "name": "Subhanallazi",
+      "name": "سُبْحَانَ الَّذِي",
 
       "first_verse_id": 2030,
       "last_verse_id": 2214,
@@ -136,7 +135,7 @@
     {
       "id": 16,
       "juz_number": 16,
-      "name": "Qal Alam",
+      "name": "قَالَ أَلَمْ",
 
       "first_verse_id": 2215,
       "last_verse_id": 2483,
@@ -145,7 +144,7 @@
     {
       "id": 17,
       "juz_number": 17,
-      "name": "Aqtarabo",
+      "name": "اقْتَرَبَ",
 
       "first_verse_id": 2484,
       "last_verse_id": 2673,
@@ -154,7 +153,7 @@
     {
       "id": 18,
       "juz_number": 18,
-      "name": "Qadd Aflaha",
+      "name": "قَدْأَفْلَحَ ",
 
       "first_verse_id": 2674,
       "last_verse_id": 2875,
@@ -163,7 +162,7 @@
     {
       "id": 19,
       "juz_number": 19,
-      "name": "Wa Qalallazina",
+      "name": "وَقَالَ الَّذِينَ",
 
       "first_verse_id": 2876,
       "last_verse_id": 3214,
@@ -172,7 +171,7 @@
     {
       "id": 20,
       "juz_number": 20,
-      "name": "A'man Khalaq",
+      "name": "أَمَّنْ خَلَقَ",
 
       "first_verse_id": 3215,
       "last_verse_id": 3385,
@@ -181,7 +180,7 @@
     {
       "id": 21,
       "juz_number": 21,
-      "name": "Utlu Ma Oohi",
+      "name": "اتْلُ مَا أُوحِيَ",
 
       "first_verse_id": 3386,
       "last_verse_id": 3563,
@@ -190,7 +189,7 @@
     {
       "id": 22,
       "juz_number": 22,
-      "name": "Wa Manyaqnut",
+      "name": "وَمَنْ يَقْنُتْ",
 
       "first_verse_id": 3564,
       "last_verse_id": 3732,
@@ -199,7 +198,7 @@
     {
       "id": 23,
       "juz_number": 23,
-      "name": "Wa Mali",
+      "name": "وَمَالِيَ",
 
       "first_verse_id": 3733,
       "last_verse_id": 4089,
@@ -208,7 +207,7 @@
     {
       "id": 24,
       "juz_number": 24,
-      "name": "Faman Azlam",
+      "name": "فَمَنْ أَظْلَمُ",
 
       "first_verse_id": 4090,
       "last_verse_id": 4264,
@@ -217,7 +216,7 @@
     {
       "id": 25,
       "juz_number": 25,
-      "name": "Elahe Yuruddo",
+      "name": "إِلَيْهِ يُرَدُّ",
 
       "first_verse_id": 4265,
       "last_verse_id": 4510,
@@ -226,7 +225,7 @@
     {
       "id": 26,
       "juz_number": 26,
-      "name": "Ha'a Meem",
+      "name": "حم",
 
       "first_verse_id": 4511,
       "last_verse_id": 4705,
@@ -235,7 +234,7 @@
     {
       "id": 27,
       "juz_number": 27,
-      "name": "Qala Fama Khatbukum",
+      "name": "قَال فَمَا خَطْبُكُمْ",
 
       "first_verse_id": 4706,
       "last_verse_id": 5104,
@@ -244,7 +243,7 @@
     {
       "id": 28,
       "juz_number": 28,
-      "name": "Qadd Sami Allah",
+      "name": "قَدْ سَمِعَ اللَّهُ",
 
       "first_verse_id": 5105,
       "last_verse_id": 5241,
@@ -253,7 +252,7 @@
     {
       "id": 29,
       "juz_number": 29,
-      "name": "Tabarakallazi",
+      "name": "تَبَارَكَ الَّذِي ",
 
       "first_verse_id": 5242,
       "last_verse_id": 5672,
@@ -262,7 +261,7 @@
     {
       "id": 30,
       "juz_number": 30,
-      "name": "Amma Yatasa'aloon",
+      "name": "عَمَّ يَتَسَاءَلُونَ",
 
       "first_verse_id": 5673,
       "last_verse_id": 6236,

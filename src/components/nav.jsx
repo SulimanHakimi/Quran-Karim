@@ -19,7 +19,7 @@ function Nav() {
           <Link to={"/"}>Home</Link>
         </li>
         <li className="cursor-pointer">
-          <Link to={"/juz"}>Juz</Link>
+          <Link to={"/juz"}>Parah</Link>
         </li>
         <li className="cursor-pointer">
           <Link to={"/surah"}>Surah</Link>

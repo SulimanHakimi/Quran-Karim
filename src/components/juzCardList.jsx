@@ -10,7 +10,7 @@ function JuzCardList() {
 
   useEffect(() => {
     axios
-      .get("https://sulimanhakimi.github.io/quran-karim-juzs-api/juz.json")
+      .get("https://sulimanhakimi.github.io/quran-karim-parahs-api/juz.json")
       .then((res) => {
         setJuz(res.data.juzs);
         setLoding(false);

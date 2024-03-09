@@ -25,8 +25,8 @@ function AyahPage() {
   }
 
   return (
-    <div className=" flex md:mt-[10vh] mt-[7vh] min-h-screen justify-center flex-col gap-10 items-center">
-      <div className="flex items-center justify-center gap-10 w-full bg-slate-500 flex-col min-h-[50vh] md:min-h-[75vh]">
+    <div className=" flex mt-[10vh] min-h-screen justify-center flex-col gap-10 items-center">
+      <div className="flex items-center justify-center gap-10 w-full bg-gray-200 flex-col min-h-[70vh] md:min-h-[75vh]">
         <div className="flex flex-col md:gap-5 gap-7">
           <div className="md:gap-4 gap-0 md:flex-row flex-col  flex items-center">
             <label
