@@ -19,18 +19,19 @@ function AyahPage() {
       .then((res) => {
         setData(res.data.data);
         setLoding(false);
+        window.scrollTo(0, 450);
       })
       .catch((err) => console.log(err));
   }
 
   return (
-    <div className=" flex mt-[10vh] min-h-screen justify-center flex-col gap-10 items-center text-2xl">
-      <div className="flex items-center justify-center gap-10 w-full bg-slate-500 flex-col min-h-[70vh]">
-        <div className="flex flex-col gap-5">
-          <div className=" gap-4 flex items-center">
+    <div className=" flex md:mt-[10vh] mt-[7vh] min-h-screen justify-center flex-col gap-10 items-center">
+      <div className="flex items-center justify-center gap-10 w-full bg-slate-500 flex-col min-h-[50vh] md:min-h-[75vh]">
+        <div className="flex flex-col md:gap-5 gap-7">
+          <div className="md:gap-4 gap-0 md:flex-row flex-col  flex items-center">
             <label
               for="surah"
-              className="text-slate-900 text-2xl font-semibold"
+              className="text-slate-900 md:text-2xl md:w-fit w-60 text-lg font-semibold"
             >
               Surah No
             </label>
@@ -39,12 +40,15 @@ function AyahPage() {
               type="number"
               maxLength={3}
               name="surah"
-              className="outline-none rounded border py-2 w-80 text-base px-3"
+              className="outline-none rounded border py-2 md:w-80 w-60 text-base px-3"
               onChange={surahInputValue}
             />
           </div>
-          <div className="gap-6 flex items-center">
-            <label for="ayah" className="text-slate-900 text-2xl font-semibold">
+          <div className="md:gap-6 gap-0 md:flex-row flex-col  flex items-center">
+            <label
+              for="ayah"
+              className="text-slate-900 md:text-2xl md:w-fit w-60 text-lg font-semibold"
+            >
               Ayah No
             </label>
 
@@ -52,7 +56,7 @@ function AyahPage() {
               type="number"
               maxLength={4}
               id="ayah"
-              className="outline-none rounded border py-2 w-80 text-base px-3"
+              className="outline-none rounded border py-2 md:w-80 w-60 text-base px-3"
               name="ayah"
               onChange={ayahInputValue}
             />
@@ -60,12 +64,12 @@ function AyahPage() {
         </div>
         <button
           onClick={btnClick}
-          className="py-3 px-5 bg-blue-700 text-white w-32 ml-20 rounded"
+          className="md:py-3 py-2 px-4 md:text-2xl text-lg md:px-5 bg-blue-700 text-white w-20 md:w-32 md:ml-20 rounded"
         >
           Find
         </button>
       </div>
-      <div className="flex py-10 min-h-[80vh] gap-10 flex-col w-full px-28 items-end">
+      <div className="flex pb-10 min-h-[85vh] gap-10 flex-col w-full px-5 md:px-28 items-end">
         {loding ? (
           <>
             <div class="w-full flex justify-center items-center">
@@ -89,15 +93,15 @@ function AyahPage() {
           </>
         ) : (
           <>
-            <div className="flex gap-10 justify-center p-4 w-full">
-              <p className="text-red-800 font-semibold">
+            <div className="flex md:gap-10 justify-between md:p-4 w-full">
+              <p className="text-red-800 font-medium md:font-semibold">
                 Ayah in quran ({data?.number?.inQuran})
               </p>
-              <p className="text-green-500 font-semibold">
+              <p className="text-green-500 font-medium md:font-semibold">
                 Ayah in surah ({data?.number?.inSurah})
               </p>
             </div>
-            <p className="text-2xl bg-slate-100 w-full font-semibold text-green-800 flex text-end items-start justify-end p-4 gap-5">
+            <p className="md:text-2xl text-lg bg-slate-100 w-full font-medium md:font-semibold text-green-800 flex text-end items-start justify-end p-4 gap-3 md:gap-5">
               {data?.text?.arab}
               <audio
                 controls
@@ -107,9 +111,9 @@ function AyahPage() {
                 <source src={data?.audio?.secondary[1]} type="audio/mpeg" />
               </audio>
             </p>
-            <p className="text-2xl font-semibold text-start w-full p-4 bg-slate-400">
-              Translation:{" "}
-              <span className="text-xl font-medium">
+            <p className="md:text-2xl text-lg font-semibold w-full p-4 bg-slate-400">
+              Translation:
+              <span className="md:text-xl text-base font-normal md:font-medium">
                 {data?.translation?.en}
               </span>
             </p>
