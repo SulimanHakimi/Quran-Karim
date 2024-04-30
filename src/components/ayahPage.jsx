@@ -6,12 +6,6 @@ function AyahPage() {
   const [ayah, setAyah] = useState(1);
   const [data, setData] = useState();
   const [loding, setLoding] = useState(false);
-  function surahInputValue(e) {
-    setSurah(e.target.value);
-  }
-  function ayahInputValue(e) {
-    setAyah(e.target.value);
-  }
   function btnClick() {
     setLoding(true);
     axios
@@ -41,7 +35,10 @@ function AyahPage() {
               maxLength={3}
               name="surah"
               className="outline-none rounded border py-2 md:w-80 w-60 text-base px-3"
-              onChange={surahInputValue}
+              onChange={(e)=>{
+                setSurah(e.target.value);
+
+              }}
             />
           </div>
           <div className="md:gap-6 gap-0 md:flex-row flex-col  flex items-center">
@@ -58,7 +55,10 @@ function AyahPage() {
               id="ayah"
               className="outline-none rounded border py-2 md:w-80 w-60 text-base px-3"
               name="ayah"
-              onChange={ayahInputValue}
+              onChange={(e)=>{
+                setAyah(e.target.value);
+
+              }}
             />
           </div>
         </div>
