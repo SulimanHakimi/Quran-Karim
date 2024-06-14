@@ -13,14 +13,14 @@ function AyahPage() {
       .then((res) => {
         setData(res.data.data);
         setLoding(false);
-        window.scrollTo(0, 450);
+        window.scrollTo(0, 600);
       })
       .catch((err) => console.log(err));
   }
 
   return (
     <div className=" flex mt-[10vh] min-h-screen justify-center flex-col gap-10 items-center">
-      <div className="flex items-center justify-center gap-10 w-full bg-gray-200 flex-col min-h-[70vh] md:min-h-[75vh]">
+      <div className="flex items-center justify-center gap-10 w-full bg-gray-200 flex-col h-[100vh]">
         <div className="flex flex-col md:gap-5 gap-7">
           <div className="md:gap-4 gap-0 md:flex-row flex-col  flex items-center">
             <label
@@ -69,7 +69,7 @@ function AyahPage() {
           Find
         </button>
       </div>
-      <div className="flex pb-10 min-h-[85vh] gap-10 flex-col w-full px-5 md:px-28 items-end">
+      <div className={data?"flex pb-10 min-h-[85vh] gap-10 flex-col w-full px-5 md:px-28 items-end":"hidden"}>
         {loding ? (
           <>
             <div class="w-full flex justify-center items-center">

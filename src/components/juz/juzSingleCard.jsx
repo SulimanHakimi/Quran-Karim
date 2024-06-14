@@ -15,7 +15,7 @@ function JuzSingleCard() {
         setLoding(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  },[]);
 
   return (
     <>

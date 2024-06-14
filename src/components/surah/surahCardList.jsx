@@ -1,10 +1,10 @@
 import React from "react";
 import axios from "axios";
-import Card from "./card";
+import Card from "./surahCard";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-function CardList() {
+function SurahCardList() {
   const [surah, setSurah] = useState([]);
   const [loding, setLoding] = useState(true);
 
@@ -60,4 +60,4 @@ function CardList() {
   );
 }
 
-export default CardList;
+export default SurahCardList;
