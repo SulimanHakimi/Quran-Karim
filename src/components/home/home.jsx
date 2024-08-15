@@ -5,16 +5,12 @@ function Home() {
     <div>
       <div className="min-h-screen flex md:flex-row justify-center  flex-col md:mt-20 mt-10 font-bold md:px-24 px-6 ">
         <div className="md:w-1/2 w-full md:h-screen h-[50vh] flex flex-col justify-center gap-5 ">
-          <span className="md:text-2xl text-lg text-slate-900">
-            <span className="md:text-5xl text-2xl text-green-800">
-              The Prophet said <br />
-            </span>
+          <span className="md:text-5xl text-2xl text-green-800 lg:font-semibold">
+            The Prophet said <br />
+          </span>
+          <span className="md:text-4xl text-xl text-slate-900 lg:font-medium">
             The best among you (Muslims) are those who learn the Qur'an and
             teach it.
-          </span>
-          <span className="md:text-base text-slate-900">
-            <span className="text-green-800 text-lg">The Prophet said </span>
-            Beautify the Quran with your voices
           </span>
         </div>
         <div className="md:w-1/2 w-full flex justify-center items-center ">

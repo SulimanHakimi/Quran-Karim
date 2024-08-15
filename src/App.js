@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import SingleCard from "./components/cards/singleCard";
+import SingleCard from "./components/surah/surahSingleCard";
 import Home from "./components/home/home";
 import JuzCardList from "./components/juz/juzCardList";
 import JuzSingleCard from "./components/juz/juzSingleCard";
