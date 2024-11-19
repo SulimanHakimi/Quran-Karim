@@ -11,7 +11,7 @@ import SurahCardList from "./components/surah/surahCardList";
 function App() {
   return (
     <BrowserRouter>
-      <div>
+      <div> 
         <Nav/>
         <Routes>
           <Route path="/" element={<Home />} />
