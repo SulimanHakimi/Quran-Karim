@@ -19,7 +19,7 @@ function AyahPage() {
       .catch((err) => console.log(err));
   }
 
-  return (
+  return ( 
     <div className=" flex mt-[10vh] min-h-screen justify-center flex-col gap-10 items-center">
       <div className="flex items-center justify-center gap-10 w-full bg-gray-200 flex-col h-[100vh]">
         <div className="flex  flex-col md:gap-5 gap-7">
