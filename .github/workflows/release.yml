@@ -6,7 +6,7 @@ on:
       - main
 
 permissions:
-  contents: write  # Grant write permissions for the GITHUB_TOKEN
+  contents: write  # Required for pushing tags and creating releases
 
 jobs:
   release:
@@ -24,26 +24,35 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build project
-        run: npm run build
-
-      - name: Configure Git
+      - name: Read and Increment Version
+        id: increment_version
         run: |
-          git config user.name "GitHub Actions"
-          git config user.email "actions@github.com"
+          # Read current version from package.json or VERSION file
+          CURRENT_VERSION=$(jq -r '.version' package.json)
+          echo "Current version: $CURRENT_VERSION"
 
-      - name: Generate Version
-        id: generate_version
+          # Increment the version (patch level by default)
+          NEW_VERSION=$(echo $CURRENT_VERSION | awk -F. '{print $1"."$2"."$3+1}')
+          echo "New version: $NEW_VERSION"
+
+          # Export the new version to GitHub environment
+          echo "VERSION=$NEW_VERSION" >> $GITHUB_ENV
+
+          # Optionally, update the package.json or VERSION file
+          jq ".version = \"$NEW_VERSION\"" package.json > package.tmp && mv package.tmp package.json
+
+      - name: Commit Version Update
         run: |
-          VERSION=$(date +'%Y.%m.%d.%H%M%S')
-          echo "VERSION=$VERSION" >> $GITHUB_ENV
+          git config --local user.name "GitHub Actions"
+          git config --local user.email "actions@github.com"
+          git add package.json
+          git commit -m "chore: bump version to v${{ env.VERSION }}"
+          git push origin main
 
-      - name: Push Git Tag
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Create Git Tag
         run: |
           git tag v${{ env.VERSION }}
-          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} v${{ env.VERSION }}
+          git push origin v${{ env.VERSION }}
 
       - name: Create Release
         uses: actions/create-release@v1
@@ -54,6 +63,6 @@ jobs:
           release_name: Release v${{ env.VERSION }}
           body: |
             ## Automated Release
-            - Changes pushed to the main branch.
+            - Incremented version to v${{ env.VERSION }}.
           draft: false
           prerelease: false
