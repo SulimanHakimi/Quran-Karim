@@ -3,34 +3,54 @@ name: Release Automation
 on:
   push:
     branches:
-      - main # Replace with your release branch if different
+      - main
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  actions: write
+  deployments: write
+
 jobs:
-  build-and-release:
+  release:
     runs-on: ubuntu-latest
 
     steps:
-      # Step 1: Check out the repository
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up Node.js (adjust for your environment)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: '16'
 
-      # Step 3: Install dependencies
       - name: Install dependencies
         run: npm install
 
-      # Step 4: Build the project
       - name: Build project
         run: npm run build
-      # Step 5: Generate a version tag
-      - name: Generate version
+
+      - name: Generate Version
         id: generate_version
         run: |
           VERSION=$(date +'%Y.%m.%d.%H%M%S')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
+
+      - name: Create Git tag
+        run: |
+          git tag v${{ env.VERSION }}
+          git push origin v${{ env.VERSION }}
+
+      - name: Create Release
+        uses: actions/create-release@v1
         env:
-          VERSION: ${{ env.VERSION }}
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        with:
+          tag_name: v${{ env.VERSION }}
+          release_name: Release v${{ env.VERSION }}
+          body: |
+            ## Automated Release
+            - Changes pushed to the main branch.
+          draft: false
+          prerelease: false
