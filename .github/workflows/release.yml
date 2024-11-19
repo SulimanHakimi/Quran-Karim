@@ -6,11 +6,7 @@ on:
       - main
 
 permissions:
-  contents: read
-  issues: write
-  pull-requests: write
-  actions: write
-  deployments: write
+  contents: write  # Grant write permissions for the GITHUB_TOKEN
 
 jobs:
   release:
@@ -31,16 +27,23 @@ jobs:
       - name: Build project
         run: npm run build
 
+      - name: Configure Git
+        run: |
+          git config user.name "GitHub Actions"
+          git config user.email "actions@github.com"
+
       - name: Generate Version
         id: generate_version
         run: |
           VERSION=$(date +'%Y.%m.%d.%H%M%S')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
 
-      - name: Create Git tag
+      - name: Push Git Tag
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           git tag v${{ env.VERSION }}
-          git push origin v${{ env.VERSION }}
+          git push https://${{ secrets.GITHUB_TOKEN }}@github.com/${{ github.repository }} v${{ env.VERSION }}
 
       - name: Create Release
         uses: actions/create-release@v1
