@@ -16,7 +16,7 @@ function SingleCard() {
         setLoding(false);
       })
       .catch((err) => console.log(err));
-  }, []);
+  }, [params.id]);
 
   return (
     <>
