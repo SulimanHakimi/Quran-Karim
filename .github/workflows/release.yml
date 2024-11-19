@@ -4,10 +4,14 @@ on:
   push:
     branches:
       - main
-  workflow_dispatch:  # Allows manual triggering with custom version input
+  workflow_dispatch:
+    inputs:
+      new_version:
+        description: "Set a custom version"
+        required: false
 
 permissions:
-  contents: write  # Required for pushing tags and creating releases
+  contents: write
 
 jobs:
   release:
@@ -25,27 +29,29 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Read current version (if no input provided)
-        id: read_version
+      - name: Read and Update Version
+        id: update_version
         run: |
           if [ -z "${{ github.event.inputs.new_version }}" ]; then
-            # Read current version from package.json
-            CURRENT_VERSION=$(jq -r '.version' package.json)
-            echo "Current version: $CURRENT_VERSION"
+            NEW_VERSION=$(jq -r '.version' package.json | awk -F. '{printf "%d.%d.%d", $1, $2, $3+1}')
           else
-            # If new version input is provided, use it
-            CURRENT_VERSION="${{ github.event.inputs.new_version }}"
-            echo "Custom version provided: $CURRENT_VERSION"
+            NEW_VERSION="${{ github.event.inputs.new_version }}"
           fi
-          echo "VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
+          echo "New version: $NEW_VERSION"
+          jq ".version = \"$NEW_VERSION\"" package.json > temp.json && mv temp.json package.json
+          echo "VERSION=$NEW_VERSION" >> $GITHUB_ENV
 
       - name: Commit Version Update
         run: |
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
-          git add package.json
-          git commit -m "chore: update version to v${{ env.VERSION }}"
-          git push origin main
+          git add -A
+          if git diff-index --quiet HEAD; then
+            echo "No changes to commit."
+          else
+            git commit -m "chore: update version to v${{ env.VERSION }}"
+            git push origin main
+          fi
 
       - name: Create Git Tag
         run: |
