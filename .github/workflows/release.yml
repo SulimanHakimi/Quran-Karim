@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+  workflow_dispatch:  # Allows manual triggering with custom version input
 
 permissions:
   contents: write  # Required for pushing tags and creating releases
@@ -24,29 +25,26 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Read and Increment Version
-        id: increment_version
+      - name: Read current version (if no input provided)
+        id: read_version
         run: |
-          # Read current version from package.json or VERSION file
-          CURRENT_VERSION=$(jq -r '.version' package.json)
-          echo "Current version: $CURRENT_VERSION"
-
-          # Increment the version (patch level by default)
-          NEW_VERSION=$(echo $CURRENT_VERSION | awk -F. '{print $1"."$2"."$3+1}')
-          echo "New version: $NEW_VERSION"
-
-          # Export the new version to GitHub environment
-          echo "VERSION=$NEW_VERSION" >> $GITHUB_ENV
-
-          # Optionally, update the package.json or VERSION file
-          jq ".version = \"$NEW_VERSION\"" package.json > package.tmp && mv package.tmp package.json
+          if [ -z "${{ github.event.inputs.new_version }}" ]; then
+            # Read current version from package.json
+            CURRENT_VERSION=$(jq -r '.version' package.json)
+            echo "Current version: $CURRENT_VERSION"
+          else
+            # If new version input is provided, use it
+            CURRENT_VERSION="${{ github.event.inputs.new_version }}"
+            echo "Custom version provided: $CURRENT_VERSION"
+          fi
+          echo "VERSION=$CURRENT_VERSION" >> $GITHUB_ENV
 
       - name: Commit Version Update
         run: |
           git config --local user.name "GitHub Actions"
           git config --local user.email "actions@github.com"
           git add package.json
-          git commit -m "chore: bump version to v${{ env.VERSION }}"
+          git commit -m "chore: update version to v${{ env.VERSION }}"
           git push origin main
 
       - name: Create Git Tag
@@ -63,6 +61,6 @@ jobs:
           release_name: Release v${{ env.VERSION }}
           body: |
             ## Automated Release
-            - Incremented version to v${{ env.VERSION }}.
+            - Version bumped to v${{ env.VERSION }}.
           draft: false
           prerelease: false
