@@ -3,8 +3,7 @@ name: Release Automation
 on:
   push:
     branches:
-      - main  # Trigger the workflow on pushes to the 'main' branch
-
+      - main # Replace with your release branch if different
 jobs:
   build-and-release:
     runs-on: ubuntu-latest
@@ -14,7 +13,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v3
 
-      # Step 2: Set up the runtime environment (Node.js example)
+      # Step 2: Set up Node.js (adjust for your environment)
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
@@ -24,37 +23,14 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      # Step 5: Build the project (if applicable)
+      # Step 4: Build the project
       - name: Build project
         run: npm run build
-
-      # Step 6: Generate a new version number
-      - name: Bump version
-        id: versioning
+      # Step 5: Generate a version tag
+      - name: Generate version
+        id: generate_version
         run: |
-          VERSION=$(date +'%Y.%m.%d.%H%M%S')  # Example version: 2024.11.20.120000
+          VERSION=$(date +'%Y.%m.%d.%H%M%S')
           echo "VERSION=$VERSION" >> $GITHUB_ENV
-          echo "::set-output name=version::$VERSION"
-
-      # Step 7: Create a GitHub release
-      - name: Create Release
-        uses: actions/create-release@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: v${{ env.VERSION }}
-          release_name: Release v${{ env.VERSION }}
-          body: |
-            ## Automated Release
-            - Changes pushed to the main branch.
-          draft: false
-          prerelease: false
-
-      # Step 8: Upload built assets (optional)
-      - name: Upload Release Assets
-        uses: actions/upload-release-asset@v1
-        with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./path/to/your/build/output.zip  # Update path to your asset
-          asset_name: output.zip
-          asset_content_type: application/zip
+          VERSION: ${{ env.VERSION }}

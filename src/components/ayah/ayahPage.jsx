@@ -22,7 +22,7 @@ function AyahPage() {
   return (
     <div className=" flex mt-[10vh] min-h-screen justify-center flex-col gap-10 items-center">
       <div className="flex items-center justify-center gap-10 w-full bg-gray-200 flex-col h-[100vh]">
-        <div className="flex flex-col md:gap-5 gap-7">
+        <div className="flex  flex-col md:gap-5 gap-7">
           <div className="md:gap-4 gap-0 md:flex-row flex-col  flex items-center">
             <label
               htmlFor="surah"
